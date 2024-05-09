@@ -1,5 +1,5 @@
-DOMAIN-SUFFIX,gemini.google.com,
-DOMAIN,cdn.usefathom.com,
-DOMAIN-SUFFIX,anthropic.com,
-DOMAIN-SUFFIX,claude.ai,
-copilot.microsoft.com,
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN,cdn.usefathom.com
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,copilot.microsoft.com
