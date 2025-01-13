@@ -6,27 +6,10 @@
   },
   "dns": {
     "servers": [
-      {
-        "tag": "default-dns",
-        "address": "223.5.5.5",
-        "detour": "direct-out"
-      },
-      {
-        "tag": "system-dns",
-        "address": "local",
-        "detour": "direct-out"
-      },
-      {
-        "tag": "block-dns",
-        "address": "rcode://name_error"
-      },
-      {
-        "tag": "google",
-        "address": "https://dns.google/dns-query",
-        "address_resolver": "default-dns",
-        "address_strategy": "ipv4_only",
-        "strategy": "ipv4_only",
-        "client_subnet": "1.0.1.0"
+      {"tag": "default-dns","address": "223.5.5.5","detour": "direct-out"},
+      {"tag": "system-dns","address": "local","detour": "direct-out"},
+      {"tag": "block-dns","address": "rcode://name_error"},
+      {"tag": "google","address": "https://dns.google/dns-query","address_resolver": "default-dns","address_strategy": "ipv4_only","strategy": "ipv4_only","client_subnet": "1.0.1.0"
       }
     ],
     "rules": [
@@ -85,10 +68,10 @@
     }
   ],
   "outbounds": [
-    { "tag": "🚀 节点选择", "type": "selector", "outbounds": ["🇭🇰 香港节点", "🇹🇼 台湾节点", "🇺🇲 美国节点", "🐸 手动切换", "♻️ 自动选择", "DIRECT"] },
+    { "tag": "🚀 节点选择", "type": "selector", "outbounds": ["🇭🇰 香港自动", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇺🇲 美国节点", "🐸 手动切换", "♻️ 自动选择", "DIRECT"] },
     { "tag": "💬 AI", "type": "selector", "outbounds": ["🚀 节点选择", "🐸 手动切换"] },
-    { "tag": "🪟 Microsoft", "type": "selector", "outbounds": ["🚀 节点选择", "♻️ 自动选择", "🔯 香港自动", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "DIRECT"] },
-    { "tag": "🍎 Apple", "type": "selector", "outbounds": ["DIRECT", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点"] },
+    { "tag": "🪟 Microsoft", "type": "selector", "outbounds": ["🚀 节点选择", "DIRECT"] },
+    { "tag": "🍎 Apple", "type": "selector", "outbounds": ["🚀 节点选择", "DIRECT"] },
     { "tag": "🐟 漏网之鱼", "type": "selector", "outbounds": ["🚀 节点选择","DIRECT"],"default": "🚀 节点选择"},
     { "tag": "🐸 手动切换", "type": "selector", "outbounds": ["{all}"]},
     { "tag": "🇭🇰 香港节点", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"] }] },
@@ -110,7 +93,7 @@
       {"protocol": "quic","outbound": "BLOCK"},
       {"clash_mode": "direct","outbound": "DIRECT"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
-      {"rule_set": "geosite-private", "outbound": "🎯 全球直连"},
+      {"rule_set": "geosite-private", "outbound": "DIRECT"},
       {"rule_set": ["geosite-apple", "geoip-apple"], "outbound": "🍎 Apple"},
       {"rule_set": "geosite-chat", "outbound": "💬 AI"},
       {"rule_set": "geosite-microsoft", "outbound": "🪟 Microsoft"},
@@ -119,8 +102,8 @@
     "rule_set": [
       { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "DIRECT" },
       { "tag": "geosite-microsoft", "type": "remote", "format": "binary", "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/microsoft.srs", "download_detour": "DIRECT" },
-      { "tag": "geosite-apple", "type": "remote", "format": "binary", "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs", "download_detour": "🎯 全球直连" },
-      { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.srs", "download_detour": "🎯 全球直连" },
+      { "tag": "geosite-apple", "type": "remote", "format": "binary", "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/apple.srs", "download_detour": "DIRECT" },
+      { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.srs", "download_detour": "DIRECT" },
       {"type":"remote","tag":"cnip","format":"binary","url":"https://ghproxy.cc/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/cn.srs","download_detour":"DIRECT"},
       {"type":"remote","tag":"cnsite","format":"binary","url":"https://ghproxy.cc/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/cn.srs","download_detour":"DIRECT"}
     ]
