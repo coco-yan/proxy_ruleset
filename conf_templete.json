@@ -45,13 +45,26 @@
                 "server": "google"
             },
             {
-                "rule_set": "geosite-cn",
+                "rule_set": "geosite-geolocation-cn",
                 "server": "default-dns"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                  {
+                    "rule_set": "geosite-geolocation-!cn",
+                    "invert": true
+                  },
+                  {
+                    "rule_set": "geoip-cn"
+                  }
+                ],
+                "server": "google"
             }
-
-        ],
-        "strategy": "prefer_ipv4",
-        "final": "google"
+            ],
+            "final": "google",
+            "strategy": "prefer_ipv4"
     },
 
     "inbounds": [
@@ -83,6 +96,16 @@
             "tag": "block-out"
         },
         {
+            "type": "selector",
+            "tag": "GLOBAL",
+            "outbounds": [
+              "direct-out",
+              "节点选择",
+              "手动切换"
+            ],
+            "default": "手动切换"
+        },
+        {
             "tag": "节点选择",
             "type": "selector",
             "outbounds": [
@@ -96,7 +119,11 @@
         {
             "tag": "手动切换",
             "type": "selector",
-            "outbounds": ["{all}"],
+            "outbounds": [
+                "{all}",
+                "🇺🇸 美国节点",
+                "🇨🇳 台湾节点"
+            ], 
             "filter": [{ "action": "exclude", "keywords": ["官网|异常|剩余|到期|时间|有效"] }]
         },
         {
@@ -132,16 +159,6 @@
               "手动切换",
               "direct-out"
             ]
-        },
-        {
-            "type": "selector",
-            "tag": "GLOBAL",
-            "outbounds": [
-              "direct-out",
-              "节点选择",
-              "手动切换"
-            ],
-            "default": "手动切换"
         },
         {
             "tag": "🇭🇰 香港自动",
@@ -189,7 +206,9 @@
                 "outbound": "direct-out"
             },
             {
-                "rule_set": ["bing","copilot"],
+                "rule_set": [
+                    "bing","copilot"
+                ],
                 "outbound": "💬 AI"
             },
             {
@@ -212,15 +231,14 @@
             },
             {
                 "rule_set": [
-                    "geosite-cn",
-                    "geoip-cn"
+                    "geoip-cn",
+                    "geosite-geolocation-cn"
                 ],
                 "outbound": "direct-out"
             }
         ],
         "auto_detect_interface": true,
         "final": "🐟 漏网之鱼",
-
         "rule_set": [
             {
                 "tag": "geosite-chat",
@@ -265,20 +283,26 @@
                 "download_detour": "direct-out"
             },
             {
-                "tag": "geosite-cn",
                 "type": "remote",
+                "tag": "geosite-geolocation-cn",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-cn.srs",
                 "download_detour": "direct-out"
-            },
-            {
+              },
+              {
+                "type": "remote",
+                "tag": "geosite-geolocation-!cn",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
+                "download_detour": "direct-out"
+              },
+              {
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
                 "download_detour": "direct-out"
-            }
-            
+              }
         ]
     },
     "experimental": {
