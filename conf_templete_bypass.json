@@ -232,11 +232,11 @@
             },
             {
                 "rule_set": [
-                    "self_defined"
+                    "self_defined",
                     "geosite-geolocation-cn"
                 ],
                 "outbound": "direct-out"
-            },
+            }
             
         ],
         "auto_detect_interface": true,
