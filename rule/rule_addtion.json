@@ -8,7 +8,7 @@
         "libvio.cloud",
         "zealotmat.net"
       ],
-      "ip-cidr": [
+      "ip_cidr": [
         "154.37.208.0/24",
         "174.139.81.0/24"
       ]
