@@ -3,10 +3,10 @@
   "rules": [
     {
       "domain_suffix": [
-        "libvio.me",
-        "libvio.top",
-        "libvio.cloud",
         "zealotmat.net"
+      ],
+      "domain_keyword": [
+        "libvio"
       ],
       "ip_cidr": [
         "154.37.208.0/24",
