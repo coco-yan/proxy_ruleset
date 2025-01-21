@@ -232,14 +232,23 @@
             },
             {
                 "rule_set": [
+                    "self_defined"
                     "geosite-geolocation-cn"
                 ],
                 "outbound": "direct-out"
-            }
+            },
+            
         ],
         "auto_detect_interface": true,
         "final": "🐟 漏网之鱼",
         "rule_set": [
+            {
+                "tag": "self_defined",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/coco-yan/proxy_ruleset/main/rule/rule_addtion.srs",
+                "download_detour": "direct-out"
+            },
             {
                 "tag": "geosite-chat",
                 "type": "remote",
