@@ -21,7 +21,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: "Checkout"
       - uses: actions/checkout@v4
-      
       - name: "Setup sing-box"
         env:
           SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.10.0-beta.24/sing-box_1.10.0-beta.24_linux_amd64.deb"
@@ -30,18 +29,17 @@ jobs:
             wget -O sing-box.deb $SING_BOX_DEB_URL
             sudo dpkg -i sing-box.deb
             rm sing-box.deb
-      
+            
       # - name: "Setup python venv"
       #   run: |
       #     set -Eeuo pipefail
       #     python3 -m venv venv
       #     source venv/bin/activate
       #     pip3 install -r requirements.txt
-
+      
       - name: "Compile rule-set"
         run: |
           bash compile.sh
-            
       - name: "Commit and push"
         run: |
           git config user.email "github-actions[bot]@users.noreply.github.com"
