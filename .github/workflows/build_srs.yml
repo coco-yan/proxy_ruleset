@@ -20,7 +20,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: "Checkout"
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: "Setup sing-box"
         env:
           SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.10.0-beta.24/sing-box_1.10.0-beta.24_linux_amd64.deb"
