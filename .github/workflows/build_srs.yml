@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: "Build RuleSet"
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  update-rule-set:
+    # The type of runner that the job will run on
+    name: "Update sing-box rule-set"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: "Checkout"
+      - uses: actions/checkout@v4
+      
+      - name: "Setup sing-box"
+        env:
+          SING_BOX_DEB_URL: "https://github.com/SagerNet/sing-box/releases/download/v1.10.0-beta.24/sing-box_1.10.0-beta.24_linux_amd64.deb"
+        run: |
+            set -Eeuo pipefail
+            wget -O sing-box.deb $SING_BOX_DEB_URL
+            sudo dpkg -i sing-box.deb
+            rm sing-box.deb
+      
+      - name: "Setup python venv"
+        run: |
+          set -Eeuo pipefail
+          python3 -m venv venv
+          source venv/bin/activate
+          pip3 install -r requirements.txt
+
+      - name: "Compile rule-set"
+        run: |
+          bash compile.sh
+            
+      - name: "Commit and push"
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add ./rule/*.json
+          git add ./rule/*.srs
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          else
+            git commit -m "Update rules"
+            git push
+          fi
