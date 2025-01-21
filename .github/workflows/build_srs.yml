@@ -31,12 +31,12 @@ jobs:
             sudo dpkg -i sing-box.deb
             rm sing-box.deb
       
-      - name: "Setup python venv"
-        run: |
-          set -Eeuo pipefail
-          python3 -m venv venv
-          source venv/bin/activate
-          pip3 install -r requirements.txt
+      # - name: "Setup python venv"
+      #   run: |
+      #     set -Eeuo pipefail
+      #     python3 -m venv venv
+      #     source venv/bin/activate
+      #     pip3 install -r requirements.txt
 
       - name: "Compile rule-set"
         run: |
