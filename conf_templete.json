@@ -121,9 +121,9 @@
             "tag": "手动切换",
             "type": "selector",
             "outbounds": [
-                "{all}",
                 "🇺🇸 美国节点",
-                "🇨🇳 台湾节点"
+                "🇨🇳 台湾节点",
+                "{all}"
             ], 
             "filter": [{ "action": "exclude", "keywords": ["官网|异常|剩余|到期|时间|有效"] }]
         },
@@ -225,10 +225,6 @@
             {
                 "rule_set": "geosite-chat",
                 "outbound": "💬 AI"
-            },
-            {
-                "rule_set": "proxylite",
-                "outbound": "节点选择"
             },
             {
                 "rule_set": [
