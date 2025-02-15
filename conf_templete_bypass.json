@@ -16,10 +16,6 @@
                 "detour": "direct-out"
             },
             {
-                "tag": "block-dns",
-                "address": "rcode://name_error"
-            },
-            {
                 "tag": "google",
                 "address": "https://1.1.1.1/dns-query",
                 "address_resolver": "default-dns",
@@ -32,10 +28,6 @@
             {
                 "outbound": "any",
                 "server": "default-dns"
-            },
-            {
-                "query_type": "HTTPS",
-                "server": "block-dns"
             },
             {
                 "clash_mode": "direct",
@@ -182,7 +174,6 @@
     "route": {
         "rules": [
             {
-                "inbound": ["tun-in"],
                 "action": "sniff"
             },
             {
