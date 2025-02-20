@@ -303,7 +303,7 @@
     "experimental": {
         "cache_file": {
             "enabled": true,
-            "path": "/etc/sing-box/cache.db",
+            "path": "cache.db",
             "cache_id": "cache_db"
         },
         "clash_api": {
