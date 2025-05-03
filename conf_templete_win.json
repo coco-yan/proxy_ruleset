@@ -65,7 +65,6 @@
             ],
             "mtu": 9000,
             "auto_route": true,
-            "stack": "system",
             "strict_route": true
         }
     ],
