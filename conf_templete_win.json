@@ -7,17 +7,12 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "address": "223.5.5.5",
-                "detour": "direct-out"
-            },
-            {
-                "tag": "system-dns",
-                "address": "local",
+                "address": "dhcp://auto",
                 "detour": "direct-out"
             },
             {
                 "tag": "google",
-                "address": "https://1.1.1.1/dns-query",
+                "address": "https://8.8.8.8/dns-query",
                 "address_resolver": "default-dns",
                 "address_strategy": "ipv4_only",
                 "strategy": "ipv4_only",
