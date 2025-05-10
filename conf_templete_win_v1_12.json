@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "log": {
         "level": "warn",
@@ -307,3 +308,316 @@
           }
     }
 }
+=======
+{
+    "log": {
+        "level": "info",
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "tag": "default-dns",
+                "type": "dhcp",
+                "detour": "direct-out"
+            },
+            {
+                "tag": "google",
+                "type": "https",
+                "server": "8.8.8.8",
+                "domain_resolver": {
+                    "server": "direct-out",
+                    "strategy": "ipv4_only"
+                }
+            }
+        ],
+        "rules": [
+            {
+                "clash_mode": "direct",
+                "server": "default-dns"
+            },
+            {
+                "clash_mode": "global",
+                "server": "google"
+            },
+            {
+                "rule_set": "geosite-geolocation-cn",
+                "server": "default-dns"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                  {
+                    "rule_set": "geosite-geolocation-!cn",
+                    "invert": true
+                  },
+                  {
+                    "rule_set": "geoip-cn"
+                  }
+                ],
+                "server": "default-dns"
+            }
+            ],
+            "final": "google",
+            "strategy": "prefer_ipv4"
+    },
+
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "address": [
+                "172.19.0.1/30",
+                "2001:0470:f9da:fdfa::1/64"
+            ],
+            "mtu": 9000,
+            "auto_route": true,
+            "strict_route": true,
+            "platform": {
+                "http_proxy": {
+                  "enabled": true,
+                  "server": "127.0.0.1",
+                  "server_port": 7890
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct",
+            "tag": "direct-out"
+        },
+        {
+            "type": "selector",
+            "tag": "GLOBAL",
+            "outbounds": [
+              "direct-out",
+              "节点选择",
+              "手动切换"
+            ],
+            "default": "手动切换"
+        },
+        {
+            "tag": "节点选择",
+            "type": "selector",
+            "outbounds": [
+                "🇭🇰 香港自动",
+                "🇭🇰 香港节点",
+                "🇨🇳 台湾节点",
+                "🇺🇸 美国节点",
+                "手动切换",
+                "direct-out"
+            ]
+        },
+        {
+            "tag": "手动切换",
+            "type": "selector",
+            "outbounds": [
+                "🇺🇸 美国节点",
+                "🇨🇳 台湾节点",
+                "{all}"
+            ], 
+            "filter": [{ "action": "exclude", "keywords": ["官网|异常|剩余|到期|时间|有效"] }]
+        },
+        {
+            "tag": "💬 AI",
+            "type": "selector",
+            "default": "手动切换",
+            "outbounds": [
+              "节点选择",
+              "手动切换"
+            ]
+        },
+        {
+            "tag": "🪟 Microsoft",
+            "type": "selector",
+            "outbounds": [
+              "direct-out",
+              "节点选择"
+            ]
+        },
+        {
+            "tag": "🍎 Apple",
+            "type": "selector",
+            "outbounds": [
+              "direct-out",
+              "节点选择"
+            ]
+        },
+        {
+            "tag": "🐟 漏网之鱼",
+            "type": "selector",
+            "outbounds": [
+              "节点选择",
+              "手动切换",
+              "direct-out"
+            ]
+        },
+        {
+            "tag": "🇭🇰 香港自动",
+            "type": "urltest",
+            "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"] }],
+            "interval": "10m",
+            "tolerance": 50
+          },
+        {
+            "tag": "🇭🇰 香港节点",
+            "type": "selector",
+            "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"] }]
+        },
+        {
+            "tag": "🇨🇳 台湾节点",
+            "type": "selector",
+            "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇨🇳|CN|cn|TW|tw|台湾|台|Taiwan"] }] 
+        },
+        {
+            "tag": "🇺🇸 美国节点",
+            "type": "selector",
+            "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇺🇸|US|us|美国|美|United States"] }]
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "action": "sniff"
+            },
+            {
+                "protocol": "dns",
+                "action": "hijack-dns"
+            },
+            {
+                "protocol": "quic",
+                "action": "reject"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct-out"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "GLOBAL"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct-out"
+            },
+            {
+                "rule_set": [
+                    "bing","copilot"
+                ],
+                "outbound": "💬 AI"
+            },
+            {
+                "rule_set": "geosite-microsoft",
+                "outbound": "🪟 Microsoft"
+            },
+            {
+                "rule_set": [
+                  "apple"
+                ],
+                "outbound": "🍎 Apple"
+            },
+            {
+                "rule_set": "geosite-chat",
+                "outbound": "💬 AI"
+            },
+            {
+                "rule_set": [
+                    "geoip-cn",
+                    "geosite-geolocation-cn",
+                    "self_defined"
+                ],
+                "outbound": "direct-out"
+            }
+            
+        ],
+        "auto_detect_interface": true,
+        "final": "🐟 漏网之鱼",
+        "rule_set": [
+            {
+                "tag": "self_defined",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/coco-yan/proxy_ruleset/main/rule/rule_addtion.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geosite-chat",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "bing",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Bing/Bing.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "copilot",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Copilot/Copilot.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "proxylite",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ProxyLite/ProxyLite.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geosite-microsoft",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Microsoft/Microsoft.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "apple",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Apple/Apple.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-geolocation-cn",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-cn.srs",
+                "download_detour": "direct-out"
+              },
+              {
+                "type": "remote",
+                "tag": "geosite-geolocation-!cn",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
+                "download_detour": "direct-out"
+              },
+              {
+                "tag": "geoip-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
+                "download_detour": "direct-out"
+              }
+        ]
+    },
+    "experimental": {
+        "cache_file": {
+            "enabled": true
+        },
+        "clash_api": {
+            "external_controller": "127.0.0.1:9090",
+            "external_ui_download_url": "https://ghproxy.cc/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+            "external_ui_download_detour": "direct-out",
+            "external_ui": "ui",
+            "default_mode": "rule"
+          }
+    }
+}
+>>>>>>> 1b42030e041c76bc03e0c4e4376e06921afec425
