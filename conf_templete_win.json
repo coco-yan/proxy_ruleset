@@ -99,8 +99,8 @@
             "tag": "手动切换",
             "type": "selector",
             "outbounds": [
+                "🇨🇳 台湾节点"
                 "🇺🇸 美国节点",
-                "🇨🇳 台湾节点",
                 "{all}"
             ], 
             "filter": [{ "action": "exclude", "keywords": ["官网|异常|剩余|到期|时间|有效"] }]
@@ -128,6 +128,16 @@
             "outbounds": [
               "direct-out",
               "节点选择"
+            ]
+        },
+        {
+            "tag": "🇬 Google",
+            "type": "selector",
+            "outbounds": [
+              "节点选择",
+              "🇭🇰 香港节点"
+              "🇨🇳 台湾节点",
+              "🇺🇸 美国节点"
             ]
         },
         {
@@ -160,6 +170,11 @@
             "tag": "🇺🇸 美国节点",
             "type": "selector",
             "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇺🇸|US|us|美国|美|United States"] }]
+        },
+        {
+            "tag": "🇸🇬 新加坡节点",
+            "type": "selector",
+            "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇸🇬|SG|新加坡|坡|狮城|Singapore"] }]
         }
     ],
     "route": {
@@ -189,13 +204,9 @@
             },
             {
                 "rule_set": [
-                    "bing","copilot"
+                    "bing","copilot","geosite-chat"
                 ],
                 "outbound": "💬 AI"
-            },
-            {
-                "rule_set": "geosite-microsoft",
-                "outbound": "🪟 Microsoft"
             },
             {
                 "rule_set": [
@@ -204,14 +215,19 @@
                 "outbound": "🍎 Apple"
             },
             {
-                "rule_set": "geosite-chat",
-                "outbound": "💬 AI"
+                "rule_set": "geosite-microsoft",
+                "outbound": "🪟 Microsoft"
+            },
+
+            {
+                "rule_set": ["geosite-google", "geoip-google"],
+                "outbound": "🇬 Google"
             },
             {
                 "rule_set": [
-                    "geoip-cn",
-                    "geosite-geolocation-cn",
                     "self_defined"
+                    "geosite-geolocation-cn",
+                    "geoip-cn"
                 ],
                 "outbound": "direct-out"
             }
@@ -246,6 +262,20 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Copilot/Copilot.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geosite-google",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geoip-google",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs",
                 "download_detour": "direct-out"
             },
             {
