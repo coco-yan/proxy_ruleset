@@ -204,13 +204,13 @@
             },
             {
                 "rule_set": [
-                    "bing","copilot","geosite-chat"
+                    "bing","copilot", "geosite-chat"
                 ],
                 "outbound": "💬 AI"
             },
             {
                 "rule_set": [
-                  "apple"
+                    "geosite-apple", "geoip-apple"
                 ],
                 "outbound": "🍎 Apple"
             },
@@ -289,15 +289,22 @@
                 "tag": "geosite-microsoft",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Microsoft/Microsoft.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs",
                 "download_detour": "direct-out"
             },
             {
-                "tag": "apple",
+                "tag": "geoip-apple",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Apple/Apple.srs",
-                "download_detour": "direct-out"
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
+                "download_detour": "direct"
+            },
+            {
+                "tag": "geosite-apple",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/apple.srs",
+                "download_detour": "direct"
             },
             {
                 "type": "remote",
