@@ -33,24 +33,9 @@
                 "server": "google"
             },
             {
-                "rule_set": "geosite-geolocation-cn",
-                "server": "default-dns"
-            },
-            {
-                "type": "logical",
-                "mode": "and",
-                "rules": [
-                  {
-                    "rule_set": "geosite-geolocation-!cn",
-                    "invert": true
-                  },
-                  {
-                    "rule_set": "geoip-cn"
-                  }
-                ],
+                "rule_set": "geosite-cn",
                 "server": "default-dns"
             }
-            ],
             "final": "google",
             "strategy": "prefer_ipv4"
     },
@@ -227,7 +212,7 @@
                 "rule_set": [
                     "geoip-cn",
                     "self_defined",
-                    "geosite-geolocation-cn"
+                    "geosite-cn"
                 ],
                 "outbound": "direct-out"
             }
@@ -308,23 +293,16 @@
             },
             {
                 "type": "remote",
-                "tag": "geosite-geolocation-cn",
+                "tag": "geosite-cn",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-cn.srs",
-                "download_detour": "direct-out"
-              },
-              {
-                "type": "remote",
-                "tag": "geosite-geolocation-!cn",
-                "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/cn.srs",
                 "download_detour": "direct-out"
               },
               {
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
+                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/cn.srs",
                 "download_detour": "direct-out"
               }
         ]
