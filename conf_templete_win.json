@@ -36,6 +36,7 @@
                 "rule_set": "geosite-cn",
                 "server": "default-dns"
             }
+        ],
             "final": "google",
             "strategy": "prefer_ipv4"
     },
