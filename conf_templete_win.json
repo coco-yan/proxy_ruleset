@@ -51,10 +51,7 @@
             ],
             "mtu": 9000,
             "auto_route": true,
-            "strict_route": true,
-            "route_exclude_address_set": [
-                "geoip-cn"
-            ]
+            "strict_route": true
         }
     ],
     "outbounds": [
@@ -214,6 +211,7 @@
             },
             {
                 "rule_set": [
+                    "geoip-cn",
                     "self_defined",
                     "geosite-cn"
                 ],
