@@ -226,77 +226,77 @@
                 "tag": "self_defined",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/coco-yan/proxy_ruleset/main/rule/rule_addtion.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/rule_addtion.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "geosite-chat",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ai-chat-!cn.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "bing",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Bing/Bing.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bing/Bing.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "copilot",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Copilot/Copilot.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Copilot/Copilot.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "geosite-google",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/google.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/google.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "geoip-google",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/google.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/google.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "proxylite",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ProxyLite/ProxyLite.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/ProxyLite/ProxyLite.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "geosite-microsoft",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/microsoft.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/microsoft.srs",
                 "download_detour": "direct-out"
             },
             {
                 "tag": "geosite-apple",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/apple.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/apple.srs",
                 "download_detour": "direct-out"
             },
             {
                 "type": "remote",
                 "tag": "geosite-cn",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geosite/cn.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/cn.srs",
                 "download_detour": "direct-out"
               },
               {
                 "tag": "geoip-cn",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://ghproxy.cc/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/cn.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/cn.srs",
                 "download_detour": "direct-out"
               }
         ]
