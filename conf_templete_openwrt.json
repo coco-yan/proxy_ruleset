@@ -206,14 +206,14 @@
             },
 
             {
-                "rule_set": ["geoip-google", "geosite-google"],
+                "rule_set": ["geosite-google", "geoip-google"],
                 "outbound": "🇬 Google"
             },
             {
                 "rule_set": [
-                    "geoip-cn",
                     "self_defined",
-                    "geosite-cn"
+                    "geosite-cn",
+                    "geoip-cn"
                 ],
                 "outbound": "direct-out"
             }
@@ -286,10 +286,10 @@
                 "download_detour": "direct-out"
             },
             {
-                "type": "remote",
                 "tag": "geosite-cn",
+                "type": "remote",
                 "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/cn.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
                 "download_detour": "direct-out"
               },
               {
