@@ -3,12 +3,12 @@
   "rules": [
     {
       "domain_suffix": [
+        "123ths.com",
+        "hexin.cn"
         "libvio.me",
         "libvio.top",
         "libvio.cloud",
-        "zealotmat.net",
-        "123ths.com",
-        "push.hexin.cn"
+        "zealotmat.net"
       ]
     }
   ]
