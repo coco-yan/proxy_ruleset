@@ -33,7 +33,7 @@
                 "server": "google"
             },
             {
-                "rule_set": "geosite-cn",
+                "rule_set": ["geosite-cn", "self_defined"]
                 "server": "default-dns"
             }
         ],
