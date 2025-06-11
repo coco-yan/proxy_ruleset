@@ -214,8 +214,9 @@
             },
             {
                 "rule_set": [
-                    "self_defined",
+                    "site_defined",
                     "geosite-cn",
+                    "ip_defined",
                     "geoip-cn"
                 ],
                 "outbound": "direct-out"
@@ -226,10 +227,17 @@
         "final": "🐟 漏网之鱼",
         "rule_set": [
             {
-                "tag": "self_defined",
+                "tag": "site_defined",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/rule_addtion.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/site_addition.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "ip_defined",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/ip_addition.srs",
                 "download_detour": "direct-out"
             },
             {
