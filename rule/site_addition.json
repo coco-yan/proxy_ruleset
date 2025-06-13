@@ -2,14 +2,16 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "sunnysh.v6.rocks"
+      ]
       "domain_suffix": [
         "123ths.com",
         "hexin.cn",
         "libvio.me",
         "libvio.top",
         "libvio.cloud",
-        "zealotmat.net",
-        "v6.rocks"
+        "zealotmat.net"
       ]
     }
   ]
