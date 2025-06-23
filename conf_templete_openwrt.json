@@ -51,7 +51,8 @@
             ],
             "mtu": 9000,
             "auto_route": true,
-            "auto_redirect": true
+            "auto_redirect": true,
+            "route_exclude_address_set": ["geoip-cn"]
         }
     ],
     "outbounds": [
