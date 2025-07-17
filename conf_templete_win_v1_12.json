@@ -13,11 +13,7 @@
             {
                 "tag": "google",
                 "type": "https",
-                "server": "8.8.8.8",
-                "domain_resolver": {
-                    "server": "default-dns",
-                    "strategy": "ipv4_only"
-                }
+                "server": "8.8.8.8"
             }
         ],
         "rules": [
