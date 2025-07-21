@@ -29,9 +29,13 @@
             {
                 "rule_set": ["geosite-cn", "site_defined"],
                 "server": "default-dns"
+            },
+            {
+                "server":"google",
+                "strategy": "ipv4_only",
+                "client_subnet": "211.137.96.205"
             }
         ],
-            "final": "google",
             "strategy": "prefer_ipv4"
     },
     "inbounds": [
