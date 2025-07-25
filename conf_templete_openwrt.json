@@ -7,23 +7,17 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "address": "dhcp://auto",
+                "type": "dhcp",
                 "detour": "direct-out"
             },
             {
                 "tag": "google",
-                "address": "https://8.8.8.8/dns-query",
-                "address_resolver": "default-dns",
-                "address_strategy": "ipv4_only",
-                "strategy": "ipv4_only",
-                "client_subnet": "211.137.96.205"
+                "type": "https",
+                "server": "8.8.8.8",
+                "detour": "节点选择"
             }
         ],
         "rules": [
-            {
-                "outbound": "any",
-                "server": "default-dns"
-            },
             {
                 "clash_mode": "direct",
                 "server": "default-dns"
@@ -35,9 +29,13 @@
             {
                 "rule_set": ["geosite-cn", "site_defined"],
                 "server": "default-dns"
+            },
+            {
+                "server":"google",
+                "strategy": "ipv4_only",
+                "client_subnet": "211.137.96.205"
             }
         ],
-            "final": "google",
             "strategy": "prefer_ipv4"
     },
 
@@ -168,6 +166,9 @@
         }
     ],
     "route": {
+        "default_domain_resolver": {
+        "server": "default-dns"
+        },
         "rules": [
             {
                 "action": "sniff"
