@@ -168,7 +168,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-        "server": "default-dns"
+            "server": "default-dns"
         },
         "rules": [
             {
