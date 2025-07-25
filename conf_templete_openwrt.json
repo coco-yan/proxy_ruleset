@@ -7,8 +7,7 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "type": "dhcp",
-                "detour": "direct-out"
+                "type": "dhcp"
             },
             {
                 "tag": "google",
