@@ -49,7 +49,7 @@
             "auto_route": true,
             "auto_redirect": true,
             "strict_route": true,
-            "route_exclude_address_set": ["geoip-cn"]
+            "route_exclude_address_set": ["ip_private", "geoip-cn"]
         }
     ],
     "outbounds": [
@@ -239,6 +239,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/ip_addition.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "ip_private",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/ip_private.srs",
                 "download_detour": "direct-out"
             },
             {
