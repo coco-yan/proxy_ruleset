@@ -32,8 +32,7 @@
             },
             {
                 "server":"google",
-                "strategy": "ipv4_only",
-                "client_subnet": "211.137.96.205"
+                "strategy": "ipv4_only"
             }
         ],
             "strategy": "prefer_ipv4"
