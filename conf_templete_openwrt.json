@@ -328,10 +328,11 @@
         },
         "clash_api": {
             "external_controller": "0.0.0.0:9090",
-            "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/releases/download/v1.99.0/dist.zip",
+            "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/releases/download/v1.101.0/dist.zip",
             "external_ui_download_detour": "direct-out",
             "external_ui": "/etc/sing-box/ui",
             "default_mode": "rule"
           }
     }
 }
+
