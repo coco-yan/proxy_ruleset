@@ -201,7 +201,7 @@
             },
             {
                 "rule_set": [
-                    "geosite-apple"
+                    "geosite-apple", "geoip-apple"
                 ],
                 "outbound": "🍎 Apple"
             },
@@ -303,6 +303,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/apple.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geoip-apple",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
                 "download_detour": "direct-out"
             },
             {
