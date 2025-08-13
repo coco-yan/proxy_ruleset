@@ -12,7 +12,7 @@
             },
             {
                 "tag": "google",
-                "type": "https",
+                "type": "tls",
                 "server": "8.8.8.8",
                 "detour": "节点选择"
             }
