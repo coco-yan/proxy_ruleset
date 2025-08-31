@@ -7,13 +7,13 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "type": "dhcp",
-                "detour": "direct-out"
+                "type": "dhcp"
             },
             {
                 "tag": "google",
-                "type": "https",
-                "server": "8.8.8.8"
+                "type": "tls",
+                "server": "8.8.8.8",
+                "detour": "节点选择"
             }
         ],
         "rules": [
@@ -28,9 +28,12 @@
             {
                 "rule_set": ["geosite-cn", "site_defined"],
                 "server": "default-dns"
+            },
+            {
+                "server":"google",
+                "strategy": "ipv4_only"
             }
             ],
-            "final": "google",
             "strategy": "ipv4_only"
     },
     "inbounds": [
@@ -164,7 +167,6 @@
         },
         "rules": [
             {
-                "inbound": ["tun-in"],
                 "action": "sniff"
             },
             {
@@ -195,7 +197,7 @@
             },
             {
                 "rule_set": [
-                    "geosite-apple"
+                    "geosite-apple", "geoip-apple"
                 ],
                 "outbound": "🍎 Apple"
             },
@@ -234,6 +236,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/ip_addition.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "ip_private",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/ip_private.srs",
                 "download_detour": "direct-out"
             },
             {
@@ -290,6 +299,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/apple.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geoip-apple",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
                 "download_detour": "direct-out"
             },
             {
