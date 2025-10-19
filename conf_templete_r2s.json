@@ -195,7 +195,7 @@
             },
             {
                 "rule_set": [
-                    "bing","copilot", "geosite-chat"
+                    "bing", "geosite-chat"
                 ],
                 "outbound": "💬 AI"
             },
@@ -261,13 +261,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bing.srs",
-                "download_detour": "direct-out"
-            },
-            {
-                "tag": "copilot",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Copilot/Copilot.srs",
                 "download_detour": "direct-out"
             },
             {
