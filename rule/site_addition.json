@@ -12,7 +12,8 @@
         "libvio.cc",
         "libvio.top",
         "libvio.cloud",
-        "snap-drop.net"
+        "snap-drop.net",
+        "localsend.org"
       ]
     }
   ]
