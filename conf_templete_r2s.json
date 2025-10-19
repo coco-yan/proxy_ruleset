@@ -260,7 +260,7 @@
                 "tag": "bing",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/Bing/Bing.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bing.srs",
                 "download_detour": "direct-out"
             },
             {
