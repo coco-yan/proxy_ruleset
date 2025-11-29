@@ -28,13 +28,10 @@
             {
                 "rule_set": ["geosite-cn", "site_defined"],
                 "server": "default-dns"
-            },
-            {
-                "server":"google",
-                "strategy": "ipv4_only"
             }
         ],
-            "strategy": "prefer_ipv4"
+        "final": "google",
+        "strategy": "prefer_ipv4"
     },
 
     "inbounds": [
@@ -322,9 +319,7 @@
     },
     "experimental": {
         "cache_file": {
-            "enabled": true,
-            "path": "cache.db",
-            "cache_id": "cache_db"
+            "enabled": true
         },
         "clash_api": {
             "external_controller": "0.0.0.0:9090",
@@ -335,6 +330,7 @@
           }
     }
 }
+
 
 
 
