@@ -195,7 +195,7 @@
             },
             {
                 "rule_set": [
-                    "bing", "geosite-chat"
+                    "geosite-edge", "geosite-msn", "bing", "geosite-chat"
                 ],
                 "outbound": "💬 AI"
             },
@@ -289,6 +289,13 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/msn.srs",
+                "download_detour": "direct-out"
+            },
+            {
+                "tag": "geosite-edge",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://testingcf.jsdelivr.net/gh/senshinya/singbox_ruleset@main/rule/MicrosoftEdge/MicrosoftEdge.srs",
                 "download_detour": "direct-out"
             },
             {
