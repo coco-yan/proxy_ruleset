@@ -288,7 +288,7 @@
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/msn.srs",
                 "download_detour": "direct-out"
-            }，
+            },
             {
                 "tag": "geosite-edge",
                 "type": "remote",
@@ -339,6 +339,7 @@
           }
     }
 }
+
 
 
 
