@@ -166,8 +166,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "default-dns",
-            "client_subnet": "211.137.96.205"
+            "server": "default-dns"
         },
         "rules": [
             {
