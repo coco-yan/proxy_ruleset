@@ -30,7 +30,7 @@
                 "server": "default-dns"
             },
             {
-                "server":"google",
+                "server": "google",
                 "strategy": "ipv4_only"
             }
             ]
@@ -325,9 +325,7 @@
     },
     "experimental": {
         "cache_file": {
-            "enabled": true,
-            "path": "cache.db",
-            "cache_id": "cache_db"
+            "enabled": true
         },
         "clash_api": {
             "external_controller": "127.0.0.1:9090",
