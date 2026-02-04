@@ -47,8 +47,8 @@
             "mtu": 9000,
             "auto_route": true,
             "auto_redirect": true,
-            "strict_route": true,
-            "route_exclude_address_set": ["ip_private", "geoip-cn"]
+            "strict_route": false,
+            "route_exclude_address_set": ["ip_private", "geoip-cn"]  
         }
     ],
     "outbounds": [
@@ -169,11 +169,18 @@
             "server": "default-dns"
         },
         "rules": [
+            {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
             {
-                "action": "sniff"
-            },
-            {
-                "protocol": "dns",
+                "type": "logical",
+                "mode": "or",  
+                "rules": [
+                  {
+                    "protocol": "dns"
+                  },
+                  {
+                    "port": 53
+                  }
+                ],
                 "action": "hijack-dns"
             },
             {
@@ -340,6 +347,7 @@
           }
     }
 }
+
 
 
 
