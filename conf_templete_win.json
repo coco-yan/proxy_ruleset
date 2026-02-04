@@ -169,7 +169,7 @@
             {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
             {
                 "type": "logical",
-                "mode": "or",  
+                "mode": "or",
                 "rules": [
                   {
                     "protocol": "dns"
