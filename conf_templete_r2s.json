@@ -169,11 +169,18 @@
             "server": "default-dns"
         },
         "rules": [
+            {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
             {
-                "action": "sniff"
-            },
-            {
-                "protocol": "dns",
+                "type": "logical",
+                "mode": "or",  
+                "rules": [
+                  {
+                    "protocol": "dns"
+                  },
+                  {
+                    "port": 53
+                  }
+                ],
                 "action": "hijack-dns"
             },
             {
