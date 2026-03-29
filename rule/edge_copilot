@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "bing.com",
+        "msn.com",
+        "msn.cn",
+        "bingapis.com",
+        "azureedge.net",
+      ],
+      "domain": [
+        "edge.microsoft.com",
+        "config.edge.skype.com"
+        "location.microsoft.com",
+        "events.data.microsoft.com"
+        "nav-edge.smartscreen.microsoft.com"
+      ]
+    }
+  ]
+}
