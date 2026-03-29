@@ -4,9 +4,11 @@
     {
       "domain_suffix": [
         "bing.com",
+        "bingapis.com",
         "msn.com",
         "msn.cn",
-        "bingapis.com",
+        "start.com",
+        "microsoftstart.com",
         "azureedge.net"
       ],
       "domain": [
