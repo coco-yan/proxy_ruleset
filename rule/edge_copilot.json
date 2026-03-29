@@ -7,13 +7,13 @@
         "msn.com",
         "msn.cn",
         "bingapis.com",
-        "azureedge.net",
+        "azureedge.net"
       ],
       "domain": [
         "edge.microsoft.com",
-        "config.edge.skype.com"
+        "config.edge.skype.com",
         "location.microsoft.com",
-        "events.data.microsoft.com"
+        "events.data.microsoft.com",
         "nav-edge.smartscreen.microsoft.com"
       ]
     }
