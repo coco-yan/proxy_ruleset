@@ -212,7 +212,7 @@
             },
             {
                 "rule_set": [
-                    "geosite-edge", "geosite-msn", "bing", "geosite-chat"
+                    "copilot", "geosite-chat"
                 ],
                 "outbound": "💬 AI"
             },
@@ -274,10 +274,10 @@
                 "download_detour": "direct-out"
             },
             {
-                "tag": "bing",
+                "tag": "copilot",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bing.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/edge_copilot.srs",
                 "download_detour": "direct-out"
             },
             {
