@@ -7,7 +7,8 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "type":"dhcp"
+                "type":"udp",
+                "server": "183.221.253.100"
             },
             {
                 "tag": "google",
