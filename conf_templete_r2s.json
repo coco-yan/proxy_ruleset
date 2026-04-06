@@ -7,8 +7,7 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "type":"udp",
-                "server": "183.221.253.100"
+                "type":"dhcp"
             },
             {
                 "tag": "google",
@@ -277,7 +276,7 @@
                 "tag": "copilot",
                 "type": "remote",
                 "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/copilot.srs",
+                "url": "https://testingcf.jsdelivr.net/gh/coco-yan/proxy_ruleset@main/rule/edge_copilot.srs",
                 "download_detour": "direct-out"
             },
             {
