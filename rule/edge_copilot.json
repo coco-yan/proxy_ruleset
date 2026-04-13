@@ -10,13 +10,13 @@
         "msn.cn",
         "start.com",
         "microsoftstart.com",
-        "azureedge.net"
+        "azureedge.net",
+        "microsoft.ai"
       ],
       "domain": [
         "edge.microsoft.com",
         "config.edge.skype.com",
         "location.microsoft.com",
-        "events.data.microsoft.com",
         "nav-edge.smartscreen.microsoft.com"
       ]
     }
