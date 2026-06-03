@@ -13,7 +13,7 @@
             },
             {
                 "tag": "default-dns",
-                "type": "dhcp"
+                "type": "local"
             }
         ],
         "rules": [
