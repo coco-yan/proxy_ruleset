@@ -333,7 +333,8 @@
     },
     "experimental": {
         "cache_file": {
-            "enabled": true
+            "enabled": true,
+            "path": "/etc/sing-box/cache.db"
         },
         "clash_api": {
             "external_controller": "0.0.0.0:9090",
