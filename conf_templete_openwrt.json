@@ -13,7 +13,8 @@
             },
             {
                 "tag": "default-dns",
-                "type": "dhcp"
+                "type": "https",
+                "server": "223.5.5.5"
             }
         ],
         "rules": [
