@@ -6,16 +6,16 @@
     "dns": {
         "servers": [
             {
-                "tag": "default-dns",
-                "type":"https",
-                "server": "223.5.5.5"
-            },
-            {
                 "tag": "google",
                 "type": "tls",
                 "server": "8.8.8.8",
                 "detour": "节点选择"
-            }
+            },
+            {
+                "tag": "default-dns",
+                "type":"https",
+                "server": "223.5.5.5"
+            }            
         ],
         "rules": [
             {
@@ -34,8 +34,7 @@
                 "server": "google",
                 "strategy": "ipv4_only"
             }
-        ],
-        "final": "google"
+        ]
     },
     "inbounds": [
         {
@@ -49,7 +48,8 @@
             "auto_route": true,
             "auto_redirect": true,
             "strict_route": false,
-            "route_exclude_address_set": ["ip_private", "geoip-cn"]
+            "route_exclude_address_set": ["ip_private", "geoip-cn"],
+            "exclude_mptcp": true
         }
     ],
     "outbounds": [
@@ -332,7 +332,8 @@
     },
     "experimental": {
         "cache_file": {
-            "enabled": true
+            "enabled": true,
+            "path": "/etc/sing-box/cache.db"
         },
         "clash_api": {
             "external_controller": "0.0.0.0:9090",
