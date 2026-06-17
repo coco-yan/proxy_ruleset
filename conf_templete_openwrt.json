@@ -27,7 +27,24 @@
                 "server": "google"
             },
             {
-                "rule_set": ["geosite-cn", "site_defined"],
+                "rule_set": [
+                    "geosite-geolocation-cn",
+                    "site_defined"
+                ],
+                "server": "default-dns"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "geoip-cn"
+                    }
+                ],
                 "server": "default-dns"
             },
             {
@@ -234,18 +251,51 @@
             },
             {
                 "rule_set": [
-                    "site_defined",
-                    "geosite-cn",
-                    "ip_defined",
-                    "geoip-cn"
+                    "geosite-geolocation-cn",
+                    "site_defined"
                 ],
                 "outbound": "direct-out"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "geoip-cn"
+                    },
+                    {
+                        "rule_set": "geosite-geolocation-!cn",
+                        "invert": true
+                    }
+                ],
+                "outbound": "direct-out"
+            },
+            {
+                "rule_set": "ip_defined",
+                "outbound": "direct-out"
             }
-            
         ],
         "auto_detect_interface": true,
         "final": "🐟 漏网之鱼",
         "rule_set": [
+            {
+                "type": "remote",
+                "tag": "geosite-geolocation-cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-geolocation-!cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs"
+            },
+            {
+                "type": "remote",
+                "tag": "geoip-cn",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
+            },
             {
                 "tag": "site_defined",
                 "type": "remote",
@@ -321,13 +371,6 @@
                 "type": "remote",
                 "format": "binary",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/cn.srs",
-                "download_detour": "direct-out"
-              },
-              {
-                "tag": "geoip-cn",
-                "type": "remote",
-                "format": "binary",
-                "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/cn.srs",
                 "download_detour": "direct-out"
               }
         ]
