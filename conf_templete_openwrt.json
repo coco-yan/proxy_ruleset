@@ -269,6 +269,10 @@
                     }
                 ],
                 "outbound": "direct-out"
+            },
+            {
+                "rule_set": "ip_defined",
+                "outbound": "direct-out"
             }
         ],
         "auto_detect_interface": true,
