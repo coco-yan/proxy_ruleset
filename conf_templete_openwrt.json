@@ -282,19 +282,22 @@
                 "type": "remote",
                 "tag": "geosite-geolocation-cn",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-cn.srs"
+                "url": "https://testingcf.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-geolocation-cn.srs",
+                "download_detour": "direct-out"
             },
             {
                 "type": "remote",
                 "tag": "geosite-geolocation-!cn",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs"
+                "url": "https://testingcf.jsdelivr.net/gh/SagerNet/sing-geosite@rule-set/geosite-geolocation-!cn.srs",
+                "download_detour": "direct-out"
             },
             {
                 "type": "remote",
                 "tag": "geoip-cn",
                 "format": "binary",
-                "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"
+                "url": "https://testingcf.jsdelivr.net/gh/SagerNet/sing-geoip@rule-set/geoip-cn.srs",
+                "download_detour": "direct-out"
             },
             {
                 "tag": "site_defined",
